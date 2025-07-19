@@ -1,3 +1,7 @@
+COMPLETE CONVERSATION:
+https://gemini.google.com/share/e018eb7faadf
+
+MAIN Prompts:
 I'm working on a feature voting system as part of a technical hands-on challenge for an AI-powered software developer role. I want your help to build it using modern tools, with a strong focus on system thinking, AI collaboration, and clean modular code.
 
 Here’s the technical setup I’ve already decided:
