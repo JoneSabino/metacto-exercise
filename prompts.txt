@@ -1,0 +1,119 @@
+I'm working on a feature voting system as part of a technical hands-on challenge for an AI-powered software developer role. I want your help to build it using modern tools, with a strong focus on system thinking, AI collaboration, and clean modular code.
+
+Here’s the technical setup I’ve already decided:
+
+### 🧠 Project Overview
+Users will be able to:
+- Submit feature suggestions
+- View all submitted features
+- Upvote others’ features
+
+### ⚙️ Backend:
+- Framework: **Python with FastAPI**
+- Hosting: **Render.com (free tier)**
+- Database: **Firestore (via Firebase Admin SDK)**
+- Authentication: Not required for now (votes will be controlled using simulated IP or device hash)
+
+### 🗃️ Firestore structure:
+- `features` collection: holds feature suggestions
+- `votes` collection: holds votes by user/device for each feature
+
+### 💻 Frontends:
+- **Web frontend**: HTML + JS, hosted with **Netlify Drop**
+- **Android mobile app**: native or Flutter, consuming the FastAPI REST endpoints
+
+---
+
+### ✅ What I want from you now:
+1. Scaffold the FastAPI backend project
+2. Setup Firebase Admin SDK to connect to Firestore
+3. Create `POST /features` endpoint to submit a new feature (`title`, `description`)
+4. Create `GET /features` endpoint to list all features along with vote counts
+5. Create `POST /features/{id}/vote` endpoint to register a vote (basic deduplication logic if possible)
+
+---
+
+### 📌 Key Requirements:
+- Focus on **simplicity and code readability**
+- Add **meaningful logs** (e.g., "Feature created", "Vote registered", "Error connecting to Firestore") to help understand what’s happening during execution
+- Structure the code using best practices: separate `main.py`, `schemas.py`, `db.py` (or `firestore.py`)
+- Provide a `requirements.txt` file
+- Include local run instructions (e.g., `uvicorn main:app --reload`)
+
+Also, please store this entire prompt as `prompt_01` inside a file named `prompts.txt`, as I will need to submit the full list of prompts I used at the end of the challenge.
+
+Ready to begin?
+
+# ... previous prompts ...
+
+---
+prompt_02
+---
+Now I want to build a simple web frontend (HTML + JavaScript) for the feature voting system, which connects to my FastAPI backend deployed on Render.
+
+The API has the following endpoints:
+- `GET /features` → returns a list of features with `id`, `title`, `description`, `created_at`, and `votes`
+- `POST /features` → expects `title` and `description` (JSON)
+- `POST /features/{id}/vote` → expects `user_identifier` in the body (used to prevent duplicate voting)
+
+Please generate a single HTML file with:
+- A list view showing all features and their vote counts, each with a “Vote” button
+- A form to submit a new feature (title + description)
+- Basic status messages (success/error) after actions
+- JavaScript using `fetch()` to call the API
+
+Keep the implementation:
+- **Simple and readable**
+- Without any framework (no React, just pure HTML + JS)
+- With basic inline styles if necessary
+- With helpful `console.log()` or `alert()` messages for debugging
+- Assume CORS is enabled on the backend
+
+# ... previous prompts ...
+
+---
+prompt_03
+---
+Now I want to create a simple Android app using Flutter that connects to the FastAPI backend I deployed on Render.
+
+The app will be part of a feature voting system, and it needs to implement the following views:
+
+---
+
+### 📱 Feature List View:
+- Fetch and display all features using the `GET /features` endpoint
+- Show each feature's `title`, `description`, and `votes`
+- Each feature should have a “Vote” button that registers a vote
+
+---
+
+### ➕ Add Feature View:
+- Simple form with two text fields: `title` and `description`
+- Submit the data to the backend via `POST /features`
+
+---
+
+### 🗳️ Vote Action:
+- When the user taps the “Vote” button, send a `POST` to `/features/{id}/vote`
+- Simulate a user identifier (e.g. a random string or device hash)
+- Handle response messages and show success/error using `SnackBar` or `AlertDialog`
+
+---
+
+### 🔗 API Endpoints:
+- `GET /features`
+- `POST /features`
+- `POST /features/{id}/vote` (with `user_identifier` in the JSON body)
+
+---
+
+### ✅ Requirements:
+- Use the `http` package for REST API communication
+- Code should be clean, readable, and modular
+- UI can be minimal, just needs to be functional
+- Use at least two screens: list and create
+- Include logs or print statements to help debug
+
+Please store this prompt as `prompt_05` in a file called `prompts.txt`.
+
+Let’s go!
