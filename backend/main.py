@@ -1,7 +1,7 @@
 import logging
 from fastapi import FastAPI, HTTPException, Body
 from typing import List
-
+from fastapi.middleware.cors import CORSMiddleware
 from schemas import FeatureCreate, FeatureOut, VoteCreate
 import firestore_client as db
 from datetime import datetime, timezone
@@ -13,6 +13,14 @@ app = FastAPI(
     title="Feature Voting API",
     description="An API for submitting and voting on new product features.",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
 )
 
 @app.on_event("startup")
